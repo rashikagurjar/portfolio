@@ -81,13 +81,13 @@ export const ContactSection = () => {
     {
       icon: Github,
       title: "GitHub",
-      href: "https://github.com/yourusername",
+      href: "https://github.com/rashikagurjar",
       color: "hover:text-foreground hover:bg-white/80"
     },
     {
       icon: Linkedin,
       title: "LinkedIn",
-      href: "https://linkedin.com/in/yourusername",
+      href: "https://www.linkedin.com/in/rashika-singh-gurjar-867410373/",
       color: "hover:text-blue-600 hover:bg-blue-50"
     },
     {

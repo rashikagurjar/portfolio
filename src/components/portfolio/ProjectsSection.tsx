@@ -225,7 +225,7 @@ export const ProjectsSection = () => {
             className="rounded-full px-8 py-6 border-primary/30 hover:bg-primary/5 hover:border-primary/60 transition-all duration-300"
             asChild
           >
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/rashikagurjar" target="_blank" rel="noopener noreferrer">
               <Github className="w-5 h-5 mr-2" />
               View All Projects on GitHub
             </a>

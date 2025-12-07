@@ -34,8 +34,8 @@ export const Navigation = () => {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled
-          ? "bg-white/70 dark:bg-black/70 backdrop-blur-md shadow-sm border-b border-white/20"
-          : "bg-transparent"
+        ? "bg-white/70 dark:bg-black/70 backdrop-blur-md shadow-sm border-b border-white/20"
+        : "bg-transparent"
         }`}
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
@@ -44,7 +44,7 @@ export const Navigation = () => {
           className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent flex items-center gap-2 hover:scale-105 transition-transform duration-300"
         >
           <Heart className="w-6 h-6 text-primary fill-primary animate-pulse-soft" />
-          <span className="font-serif tracking-wide">Arya</span>
+          <span className="font-serif tracking-wide">Rashika</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -54,8 +54,8 @@ export const Navigation = () => {
               key={link.name}
               to={link.path}
               className={`text-sm font-medium transition-all duration-300 relative group ${location.pathname === link.path
-                  ? "text-primary font-semibold"
-                  : "text-muted-foreground hover:text-primary"
+                ? "text-primary font-semibold"
+                : "text-muted-foreground hover:text-primary"
                 }`}
             >
               {link.name}
@@ -102,8 +102,8 @@ export const Navigation = () => {
                   key={link.name}
                   to={link.path}
                   className={`text-lg font-medium transition-colors ${location.pathname === link.path
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-primary"
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-primary"
                     }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >

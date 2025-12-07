@@ -85,8 +85,8 @@ export const HeroSection = ({
           className="flex justify-center gap-8 mb-12"
         >
           {[
-            { icon: Github, href: "https://github.com" },
-            { icon: Linkedin, href: "https://linkedin.com" },
+            { icon: Github, href: "https://github.com/rashikagurjar" },
+            { icon: Linkedin, href: "https://www.linkedin.com/in/rashika-singh-gurjar-867410373/" },
             { icon: Mail, href: "mailto:contact@example.com" }
           ].map((social, index) => (
             <motion.a
