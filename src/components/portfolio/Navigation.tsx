@@ -1,113 +1,125 @@
 import { useState, useEffect } from "react";
+import { Menu, X, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { ModeToggle } from "@/components/mode-toggle";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
-    }
-  };
-
-  const navItems = [
-    { label: "Home", id: "hero" },
-    { label: "About", id: "about" },
-    { label: "Skills", id: "skills" },
-    { label: "Projects", id: "projects" }, 
-    { label: "Contact", id: "contact" }
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Skills", path: "/skills" },
+    { name: "Projects", path: "/projects" },
   ];
 
-  return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? "bg-background/80 backdrop-blur-md shadow-soft border-b border-border/50" 
-        : "bg-transparent"
-    }`}>
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <button
-            onClick={() => scrollToSection("hero")}
-            className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent hover:opacity-80 transition-smooth"
-          >
-            Portfolio
-          </button>
+  const handleHireMeClick = () => {
+    navigate("/contact");
+    setMobileMenuOpen(false);
+  };
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-smooth relative group"
-              >
-                {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-              </button>
-            ))}
-            
-            <Button
-              size="sm"
-              className="gradient-primary hover:shadow-hover transition-smooth ml-4"
-              onClick={() => scrollToSection("contact")}
+  return (
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled
+          ? "bg-white/70 dark:bg-black/70 backdrop-blur-md shadow-sm border-b border-white/20"
+          : "bg-transparent"
+        }`}
+    >
+      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+        <Link
+          to="/"
+          className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent flex items-center gap-2 hover:scale-105 transition-transform duration-300"
+        >
+          <Heart className="w-6 h-6 text-primary fill-primary animate-pulse-soft" />
+          <span className="font-serif tracking-wide">Arya</span>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              to={link.path}
+              className={`text-sm font-medium transition-all duration-300 relative group ${location.pathname === link.path
+                  ? "text-primary font-semibold"
+                  : "text-muted-foreground hover:text-primary"
+                }`}
             >
-              Hire Me
+              {link.name}
+              <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary rounded-full transition-all duration-300 ${location.pathname === link.path ? "w-full" : "w-0 group-hover:w-full"
+                }`}></span>
+            </Link>
+          ))}
+
+          <div className="flex items-center gap-4">
+            <ModeToggle />
+            <Button
+              className="rounded-full bg-primary/90 hover:bg-primary text-white shadow-soft hover:shadow-hover hover:-translate-y-0.5 transition-all duration-300 px-6"
+              onClick={handleHireMeClick}
+            >
+              Let's Talk
             </Button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="md:hidden p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-5 h-5" />
-            ) : (
-              <Menu className="w-5 h-5" />
-            )}
-          </Button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border/50 bg-background/95 backdrop-blur-md">
-            <div className="flex flex-col gap-4">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-left py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-smooth"
+        {/* Mobile Menu Toggle */}
+        <div className="md:hidden flex items-center gap-4">
+          <ModeToggle />
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="text-foreground p-2 hover:bg-primary/10 rounded-full transition-colors"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-white/95 dark:bg-black/95 backdrop-blur-lg border-b border-primary/10 overflow-hidden"
+          >
+            <div className="container mx-auto px-6 py-8 flex flex-col gap-6">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className={`text-lg font-medium transition-colors ${location.pathname === link.path
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-primary"
+                    }`}
+                  onClick={() => setMobileMenuOpen(false)}
                 >
-                  {item.label}
-                </button>
+                  {link.name}
+                </Link>
               ))}
               <Button
-                size="sm"
-                className="gradient-primary hover:shadow-hover transition-smooth mt-2 self-start"
-                onClick={() => scrollToSection("contact")}
+                className="w-full rounded-full bg-primary hover:bg-primary/90 shadow-lg mt-4"
+                onClick={handleHireMeClick}
               >
-                Hire Me
+                Let's Talk
               </Button>
             </div>
-          </div>
+          </motion.div>
         )}
-      </div>
+      </AnimatePresence>
     </nav>
   );
 };
