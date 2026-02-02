@@ -12,6 +12,7 @@ import {
   Github,
   Linkedin,
   Twitter,
+  Brain,
   Send,
   MessageSquare,
   Sparkles
@@ -60,19 +61,19 @@ export const ContactSection = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "your.email@example.com",
-      href: "mailto:your.email@example.com"
+      value: "rashikasinghgurjar@gmail.com",
+      href: "mailto:rashikasinghgurjar@gmail.com"
     },
     {
       icon: Phone,
       title: "Phone",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567"
+      value: "6306340821",
+      href: "tel:6306340821"
     },
     {
       icon: MapPin,
       title: "Location",
-      value: "San Francisco, CA",
+      value: "Lucknow,Uttar Pradesh",
       href: "#"
     }
   ];
@@ -90,12 +91,19 @@ export const ContactSection = () => {
       href: "https://www.linkedin.com/in/rashika-singh-gurjar-867410373/",
       color: "hover:text-blue-600 hover:bg-blue-50"
     },
+    // {
+    //   icon: Twitter,
+    //   title: "Twitter",
+    //   href: "https://twitter.com/yourusername",
+    //   color: "hover:text-sky-400 hover:bg-sky-50"
+    // }
     {
-      icon: Twitter,
-      title: "Twitter",
-      href: "https://twitter.com/yourusername",
-      color: "hover:text-sky-400 hover:bg-sky-50"
+      icon: Brain,
+      title: "HuggingFace",
+      href: "https://huggingface.co/rashika-gurjar",
+      color: "hover:text-foreground hover:bg-white/80"
     }
+
   ];
 
   return (
