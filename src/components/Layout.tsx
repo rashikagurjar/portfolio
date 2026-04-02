@@ -13,7 +13,7 @@ const Layout = () => {
             <footer className="bg-foreground/5 py-8 border-t border-border/50">
                 <div className="container mx-auto px-6 text-center">
                     <p className="text-sm text-muted-foreground">
-                        © 2024 Rashika Singh Gurjar. Built with React, TypeScript & Tailwind CSS
+                        © 2026 Rashika Singh Gurjar. Built with React, TypeScript & Tailwind CSS
                     </p>
                 </div>
             </footer>

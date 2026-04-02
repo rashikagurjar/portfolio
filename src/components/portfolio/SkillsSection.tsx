@@ -15,40 +15,34 @@ import { motion } from "framer-motion";
 export const SkillsSection = () => {
   const skillCategories = [
     {
-      title: "Programming Languages",
-      icon: Code2,
-      color: "primary",
-      skills: ["Java", "JavaScript", "TypeScript", "Python", "C++", "Rust"]
-    },
-    {
-      title: "Frontend Development",
-      icon: Globe,
-      color: "secondary",
-      skills: ["React", "HTML5", "CSS3", "Tailwind CSS", "Next.js", "Framer Motion"]
-    },
-    {
-      title: "Backend Development",
-      icon: Database,
-      color: "accent",
-      skills: ["Node.js", "Express.js", "MongoDB", "PostgreSQL", "REST APIs", "Prisma"]
-    },
-    {
-      title: "MERN Stack",
-      icon: Smartphone,
-      color: "tertiary",
-      skills: ["MongoDB", "Express.js", "React", "Node.js", "Full Stack", "Redux"]
-    },
-    {
-      title: "Data Structures",
+      title: "LLMs & GenAI",
       icon: Cpu,
       color: "primary",
-      skills: ["Arrays", "Linked Lists", "Trees", "Graphs", "Dynamic Programming", "Sorting"]
+      skills: ["Prompt Engineering", "LangChain", "RAG", "Multi-Agent Systems", "OpenAI API", "Gemini API"]
+    },
+    {
+      title: "ML & NLP",
+      icon: Sparkles,
+      color: "secondary",
+      skills: ["scikit-learn", "NLTK", "spaCy", "NER", "Sentiment Analysis"]
+    },
+    {
+      title: "Languages",
+      icon: Code2,
+      color: "accent",
+      skills: ["Python (Primary)", "Java", "JavaScript", "C++"]
+    },
+    {
+      title: "Web",
+      icon: Globe,
+      color: "tertiary",
+      skills: ["React.js", "Node.js", "Express.js", "MongoDB (MERN)"]
     },
     {
       title: "Tools & Tech",
       icon: GitBranch,
-      color: "secondary",
-      skills: ["Git", "GitHub", "VS Code", "Postman", "Docker", "Vite"]
+      color: "primary",
+      skills: ["Git", "GitHub", "VS Code", "Docker", "Postman", "Vite"]
     }
   ];
 
@@ -84,7 +78,7 @@ export const SkillsSection = () => {
 
   const item = {
     hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50 } }
+    show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 50 } }
   };
 
   return (

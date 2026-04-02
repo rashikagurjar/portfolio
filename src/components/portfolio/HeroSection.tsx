@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import heroBg from "@/assets/hero_background.png";
@@ -48,9 +48,10 @@ export const HeroSection = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
-            className="text-xl md:text-3xl text-muted-foreground mb-10 max-w-3xl mx-auto font-light tracking-wide leading-relaxed"
+            className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-4xl mx-auto font-light tracking-wide leading-relaxed"
           >
-            {tagline}
+            I specialize in LLM-powered pipelines, RAG systems, and agentic AI workflows.
+            Currently pursuing an MCA at Harcourt Butler Technical University.
           </motion.p>
         </motion.div>
 
@@ -77,17 +78,17 @@ export const HeroSection = ({
           </Button>
         </motion.div>
 
-        {/* Social Links */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 1 }}
-          className="flex justify-center gap-8 mb-12"
+          className="flex justify-center flex-wrap gap-6 mb-12"
         >
           {[
             { icon: Github, href: "https://github.com/rashikagurjar" },
             { icon: Linkedin, href: "https://www.linkedin.com/in/rashika-singh-gurjar-867410373/" },
-            { icon: Mail, href: "mailto:contact@example.com" }
+            { icon: Mail, href: "mailto:rashikasinghgurjar@gmail.com" },
+            { icon: Globe, href: "https://rashikagurjar.vercel.app" } // placeholder for current Vercel portfolio as requested.
           ].map((social, index) => (
             <motion.a
               key={index}

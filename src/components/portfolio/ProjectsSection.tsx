@@ -10,57 +10,39 @@ import project3 from "@/assets/project3.png";
 export const ProjectsSection = () => {
   const projects = [
     {
-      title: "E-Commerce MERN App",
-      description: "Full-stack e-commerce platform with user authentication, product management, shopping cart, and payment integration using Stripe API.",
+      title: "Invoice Q&A Chatbot",
+      description: "RAG pipeline for PDF invoices using LangChain and OpenAI; implemented prompt versioning.",
       image: project1,
-      technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe"],
-      githubUrl: "https://github.com/yourusername/ecommerce-app",
-      liveUrl: "https://your-ecommerce-app.com",
+      technologies: ["LangChain", "OpenAI API", "Python", "RAG"],
+      githubUrl: "https://github.com/rashikagurjar",
+      liveUrl: "",
       featured: true
     },
     {
-      title: "Task Management Dashboard",
-      description: "A modern project management tool with drag-and-drop functionality, real-time updates, and team collaboration features.",
+      title: "Multi-Agent Finance Research Bot",
+      description: "Hierarchical multi-agent system (Researcher, Summarizer, Editor) with self-reflection feedback loops.",
       image: project2,
-      technologies: ["React", "TypeScript", "Tailwind CSS", "Firebase"],
-      githubUrl: "https://github.com/yourusername/task-manager",
-      liveUrl: "https://your-task-manager.com",
+      technologies: ["Multi-Agent", "Python", "LLMs"],
+      githubUrl: "https://github.com/rashikagurjar",
+      liveUrl: "",
       featured: true
     },
     {
-      title: "Cloud Infrastructure Visualizer",
-      description: "Interactive dashboard for visualizing cloud resources, monitoring server health, and managing API connections in real-time.",
+      title: "AI Video Notes Extractor",
+      description: "Speech-to-text pipeline with NER for structured insight generation.",
       image: project3,
-      technologies: ["Vue.js", "D3.js", "AWS SDK", "WebSockets"],
-      githubUrl: "https://github.com/yourusername/cloud-visualizer",
-      liveUrl: "https://your-cloud-app.com",
+      technologies: ["Speech-to-Text", "NER", "NLP", "Python"],
+      githubUrl: "https://github.com/rashikagurjar",
+      liveUrl: "",
       featured: true
     },
     {
-      title: "Weather Forecast App",
-      description: "Modern weather application with location-based forecasts, interactive maps, and responsive design for all devices.",
+      title: "RetailEdge",
+      description: "Full-stack MERN inventory and billing system.",
       image: "/api/placeholder/400/250",
-      technologies: ["React", "OpenWeather API", "Geolocation", "PWA"],
-      githubUrl: "https://github.com/yourusername/weather-app",
-      liveUrl: "https://your-weather-app.com",
-      featured: false
-    },
-    {
-      title: "Social Media Dashboard",
-      description: "Analytics dashboard for social media metrics with data visualization, real-time updates, and export functionality.",
-      image: "/api/placeholder/400/250",
-      technologies: ["React", "Chart.js", "REST API", "Material-UI"],
-      githubUrl: "https://github.com/yourusername/social-dashboard",
-      liveUrl: "https://your-social-dashboard.com",
-      featured: false
-    },
-    {
-      title: "Chat Application",
-      description: "Real-time chat application with private messaging, group chats, file sharing, and emoji support using WebSocket technology.",
-      image: "/api/placeholder/400/250",
-      technologies: ["React", "Socket.io", "Node.js", "MongoDB"],
-      githubUrl: "https://github.com/yourusername/chat-app",
-      liveUrl: "https://your-chat-app.com",
+      technologies: ["MongoDB", "Express", "React", "Node.js"],
+      githubUrl: "https://github.com/rashikagurjar",
+      liveUrl: "",
       featured: false
     }
   ];
